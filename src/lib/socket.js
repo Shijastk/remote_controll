@@ -3,8 +3,8 @@ import { io } from 'socket.io-client';
 const params = new URLSearchParams(window.location.search);
 const TOKEN = params.get('token') || 'remote123';
 
-// CLOUD RELAY (Host this on Render!)
-const RELAY_URL = 'http://localhost:3002'; 
+// CLOUD RELAY (Set this in Vercel Environment Variables as VITE_RELAY_URL)
+const RELAY_URL = import.meta.env.VITE_RELAY_URL || 'http://localhost:3002'; 
 
 export let socket = null;
 let currentConnectionId = null;
